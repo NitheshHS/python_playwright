@@ -1,5 +1,5 @@
 .DS_Store
 .idea/
-tests/_*
-utilities/_*
+utilities/__pycache__/*
+tests/__pycache__/*
 allure-results/*
