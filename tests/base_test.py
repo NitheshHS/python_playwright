@@ -14,7 +14,7 @@ class BaseTest:
     @pytest.fixture(scope="function")
     def setup_browser(self):
         with sync_playwright() as playwright:
-            self.configs = Configs('../data/config.ini')
+            self.configs = Configs('data/config.ini')
             self.browser=playwright.chromium.launch(headless=self.configs.get_browser_headless)
             self.context = self.browser.new_context()
             self.page = self.context.new_page()

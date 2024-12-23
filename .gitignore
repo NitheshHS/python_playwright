@@ -3,3 +3,6 @@
 utilities/__pycache__/*
 tests/__pycache__/*
 allure-results/*
+Pages/__pycache__/*
+assets/*
+*.pyc

@@ -4,9 +4,10 @@ import os.path
 
 class Configs:
     def __init__(self, path):
+        current_dir = os.path.dirname(os.path.realpath(__file__))
+        config_path = os.path.join(current_dir, '..', path)
         self._parser = configparser.ConfigParser()
-        print(os.path.abspath(path))
-        self._parser.read(os.path.abspath(path))
+        self._parser.read(os.path.abspath(config_path))
         self._url = self._parser['SWAG_LAB']['url']
         self._username = self._parser['SWAG_LAB']['username']
         self._password = self._parser['SWAG_LAB']['password']
