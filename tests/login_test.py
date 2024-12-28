@@ -1,6 +1,6 @@
 import pytest
 
-from pages.login_page import LoginPage
+from page.login_page import LoginPage
 from tests.base_test import BaseTest
 
 

@@ -1,7 +1,7 @@
 import pytest
 
-from pages.ProductsPage import ProductsPage
-from pages.login_page import LoginPage
+from page.product_page import ProductsPage
+from page.login_page import LoginPage
 from tests.base_test import BaseTest
 
 

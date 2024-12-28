@@ -1,9 +1,9 @@
 import pytest
 
-from pages.ProductsPage import ProductsPage
-from pages.cart_page import CartPage
-from pages.checkout_page import CheckoutPage
-from pages.login_page import LoginPage
+from page.product_page import ProductsPage
+from page.cart_page import CartPage
+from page.checkout_page import CheckoutPage
+from page.login_page import LoginPage
 from tests.base_test import BaseTest
 
 
