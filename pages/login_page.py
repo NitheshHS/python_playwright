@@ -7,6 +7,7 @@ class Login:
         self.input_username = "[data-test=\"username\"]"
         self.input_password = "[data-test=\"password\"]"
         self.btn_login = "[id=\"login-button\"]"
+        self.logo= ".login_logo"
 
 
 class LoginPage(UiInteractions):
@@ -21,4 +22,10 @@ class LoginPage(UiInteractions):
         self.fill_text(self._login.input_password, password)
         self.click_on(self._login.btn_login)
         expect(self.page).to_have_title(expected_title)
+
+    def verify_logo_is_present(self, is_visible:bool):
+        self.screenshot("login_logo")
+        assert self.is_visible(self._login.logo) == is_visible
+
+
 

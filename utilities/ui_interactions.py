@@ -1,3 +1,4 @@
+import os.path
 from xml.sax.xmlreader import Locator
 
 from playwright.sync_api import Page
@@ -69,6 +70,21 @@ class UiInteractions(object):
 
     def get_element_text(self, selector: str):
         return self.find_element(selector).inner_text()
+
+    def is_visible(self, selector: str)-> bool:
+        self.wait_for_element(selector)
+        self.logger.info(f'Checking visibility of element {selector}')
+        return self.page.is_visible(selector)
+
+    def wait_for_element(self, selector: str, timeout: int=0)->None:
+        self.logger.info(f'Waiting for element {selector}')
+        self.page.wait_for_selector(selector, timeout=timeout)
+
+    def screenshot(self, screenshot_name):
+        current_dir = os.path.dirname(os.path.realpath(__file__))
+        config_path = os.path.join(current_dir, '..', 'screenshots')
+        self.page.screenshot(path=f"{config_path}/{screenshot_name}.png")
+
 
 
 

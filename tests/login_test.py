@@ -1,7 +1,6 @@
 import pytest
 
-from Pages.login_page import LoginPage
-
+from pages.login_page import LoginPage
 from tests.base_test import BaseTest
 
 
@@ -32,6 +31,11 @@ class TestLoginPage(BaseTest):
         context = browser.new_context(storage_state="../login_session.json")
         page = context.new_page()
         print(f"Page title: {page.url}")
+
+    def test_logo_in_login_page(self, setup_browser):
+        page, _, _ = setup_browser
+        login = LoginPage(page)
+        login.verify_logo_is_present(True)
 
 if __name__ == '__main__':
     pytest.main()
