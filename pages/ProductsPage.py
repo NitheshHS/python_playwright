@@ -8,6 +8,7 @@ class Products:
         self.add_to_cart = "ADD TO CART"
         self.remove_cart = "REMOVE CART"
         self.shopping_cart_badge = ".shopping_cart_badge"
+        self.icon_cart = "div[class='shopping_cart_container']>a"
 
 class ProductsPage(UiInteractions):
     def __init__(self, page: Page):
@@ -30,6 +31,9 @@ class ProductsPage(UiInteractions):
         remove_cart_btns=self.get_by_text(self._products.remove_cart).count()
         for i in range(remove_cart_btns):
             self.get_by_text(self._products.remove_cart).nth(i).click()
+
+    def click_on_shopping_cart_icon(self):
+        self.click_on(self._products.icon_cart)
 
 
 

@@ -1,4 +1,5 @@
 import os.path
+from venv import logger
 from xml.sax.xmlreader import Locator
 
 from playwright.sync_api import Page
@@ -84,6 +85,16 @@ class UiInteractions(object):
         current_dir = os.path.dirname(os.path.realpath(__file__))
         config_path = os.path.join(current_dir, '..', 'screenshots')
         self.page.screenshot(path=f"{config_path}/{screenshot_name}.png")
+
+    @property
+    def get_page_title(self):
+        self.logger.info(f'Getting page title')
+        return self.page.title
+
+    @property
+    def get_current_page_url(self):
+        self.logger.info(f'Getting page url')
+        return self.page.url
 
 
 
